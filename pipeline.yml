@@ -16,5 +16,5 @@ pipelines:
             - name: bash_step
         execution:
           onExecute:
-            - write-output "Hi"
+            - write-output "Hi !!"
             - docker images
