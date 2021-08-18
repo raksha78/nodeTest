@@ -1,0 +1,31 @@
+pipelines:
+  - name: my_pipeline_ct
+    configuration:
+      environmentVariables:
+        readOnly:
+          env1: cat
+          env2:
+            default: fat
+            description: I am not fat
+            values:
+              - cat
+              - dog
+              - fat
+    steps:
+      - name: my_step_ct
+        type: Bash
+        execution:
+          onStart:
+            - echo "prepare for main execution"
+            - printenv
+        configuration:
+          environmentVariables:
+            step_env1:
+              default: bar
+              description: no bar 
+              values:
+                - foo
+                - bar
+                - koo
+              allowCustom: true
+            step_env2: flower
