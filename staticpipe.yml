@@ -1,0 +1,76 @@
+resources:
+  - name: connecting_resource_node_test_1
+    type: PropertyBag
+    configuration:
+      key1: value1
+      key2: value2
+
+pipelines:
+  - name: node_test_run
+    steps:
+      - name: myStep112
+        type: Bash
+        configuration:
+          outputResources: 
+            - name: connecting_resource_node_test_1
+#               trigger: false
+          integrations:
+            - name: raksha78_github
+        execution:
+          onExecute:
+            - write_output connecting_resource_node_test_1 "test=value"
+
+      - name: rhel7
+        type: Bash
+        configuration:
+          nodePool: rhel7
+          inputResources:
+            - name: connecting_resource_node_test_1
+        execution:
+          onExecute:
+            - printenv
+            - docker images
+
+      - name: c7dynamic
+        type: Bash
+        configuration:
+          nodePool: cent7
+          inputResources:
+            - name: connecting_resource_node_test_1
+        execution:
+          onExecute:
+            - printenv
+            - docker images
+            
+      - name: u20dynamic
+        type: Bash
+        configuration:
+          nodePool: u20
+          inputResources:
+            - name: connecting_resource_node_test_1
+        execution:
+          onExecute:
+            - printenv
+            - docker images
+            
+      - name: c8dynamic
+        type: Bash
+        configuration:
+          nodePool: cent8
+          inputResources:
+            - name: connecting_resource_node_test_1
+        execution:
+          onExecute:
+            - printenv
+            - docker images
+
+      - name: rhel8
+        type: Bash
+        configuration:
+          nodePool: rhel8
+          inputResources:
+            - name: connecting_resource_node_test_1
+        execution:
+          onExecute:
+            - printenv
+            - docker images
