@@ -20,17 +20,6 @@ pipelines:
           onExecute:
             - write_output connecting_resource_node_test_1 "test=value"
 
-      - name: u16dynamic
-        type: Bash
-        configuration:
-          nodePool: u16dynamic
-          inputResources:
-            - name: connecting_resource_node_test_1
-        execution:
-          onExecute:
-            - printenv
-            - docker images
-
       - name: c7dynamic
         type: Bash
         configuration:
