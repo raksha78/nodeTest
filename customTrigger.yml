@@ -12,37 +12,30 @@ pipelines:
               - dog
               - fat
     steps:
-      - name: trigger_2
-        type: Bash
-        execution:
-          onExecute:
+#       - name: trigger_2
+#         type: Bash
+#         execution:
+#           onExecute:
 #             - printenv
 #             - echo "done"
 #             - write_output propertyCanvas "description=\"hello world\""
 #             - add_pipeline_variables prev_runid=$run_id
 #             - touch testreport.xml
 #             - save_tests testreport.xml
-            - echo runs > cache.file
-            - add_cache_files cache.file runs.file
-            - echo "state=pipeline2" > cache.txt
-            - add_run_files cache.txt run_state_file
-            - add_pipeline_files cache.txt pipe_state_file
-            - write_output propertyCanvas "pipelines=$run_id"
-            - save_tests cache.txt
-#       - name: my_step_ct
-#         type: Bash
-#         execution:
-#           onStart:
-#             - echo "prepare for main execution"
-#             - printenv
-#         configuration:
-#           environmentVariables:
-#             step_env1:
-#               default: bar
-#               description: no bar 
-#               values:
-#                 - foo
-#                 - bar
-#                 - koo
-#               allowCustom: true
-#             step_env2: flower
+      - name: my_step_ct
+        type: Bash
+        execution:
+          onStart:
+            - echo "prepare for main execution"
+            - printenv
+        configuration:
+          environmentVariables:
+            step_env1:
+              default: bar
+              description: no bar 
+              values:
+                - foo
+                - bar
+                - koo
+              allowCustom: true
+            step_env2: flower
