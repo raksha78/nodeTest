@@ -23,7 +23,7 @@ pipelines:
 #             - touch testreport.xml
 #             - save_tests testreport.xml
       - name: my_step_ct
-        type: 
+        type: Bash
         execution:
           onStart:
             - echo "prepare for main execution"
