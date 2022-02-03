@@ -1,6 +1,8 @@
 pipelines:
   - name: my_pipeline_ct
     configuration:
+      integrations:
+          - name: s_art
       environmentVariables:
         readOnly:
           env1: cat
@@ -12,16 +14,16 @@ pipelines:
               - dog
               - fat
     steps:
-#       - name: trigger_2
-#         type: Bash
-#         execution:
-#           onExecute:
-#             - printenv
-#             - echo "done"
-#             - write_output propertyCanvas "description=\"hello world\""
-#             - add_pipeline_variables prev_runid=$run_id
-#             - touch testreport.xml
-#             - save_tests testreport.xml
+      - name: trigger_2
+        type: Bash
+        execution:
+          onExecute:
+            - printenv
+            - echo "done"
+            - write_output propertyCanvas "description=\"hello world\""
+            - add_pipeline_variables prev_runid=$run_id
+            - touch testreport.xml
+            - save_tests testreport.xml
       - name: my_step_ct
         type: 
         execution:
