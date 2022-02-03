@@ -24,20 +24,20 @@ pipelines:
             - add_pipeline_variables prev_runid=$run_id
             - touch testreport.xml
             - save_tests testreport.xml
-      - name: my_step_ct
-        type: 
-        execution:
-          onStart:
-            - echo "prepare for main execution"
-            - printenv
-        configuration:
-          environmentVariables:
-            step_env1:
-              default: bar
-              description: no bar 
-              values:
-                - foo
-                - bar
-                - koo
-              allowCustom: true
-            step_env2: flower
+#       - name: my_step_ct
+#         type: 
+#         execution:
+#           onStart:
+#             - echo "prepare for main execution"
+#             - printenv
+#         configuration:
+#           environmentVariables:
+#             step_env1:
+#               default: bar
+#               description: no bar 
+#               values:
+#                 - foo
+#                 - bar
+#                 - koo
+#               allowCustom: true
+#             step_env2: flower
