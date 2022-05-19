@@ -23,7 +23,7 @@ pipelines:
       - name: c7dynamic
         type: Bash
         configuration:
-          nodePool: c7dynamic
+          nodePool: c7_dynamic
           inputResources:
             - name: connecting_resource_node_test_1
         execution:
@@ -34,7 +34,7 @@ pipelines:
       - name: u18dynamic
         type: Bash
         configuration:
-          nodePool: u18dynamic
+          nodePool: u18_dynamic
           inputResources:
             - name: connecting_resource_node_test_1
         execution:
@@ -45,7 +45,7 @@ pipelines:
       - name: u20dynamic
         type: Bash
         configuration:
-          nodePool: u20dynamic
+          nodePool: u20_dynamic
           inputResources:
             - name: connecting_resource_node_test_1
         execution:
