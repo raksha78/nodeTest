@@ -66,11 +66,11 @@ pipelines:
             
       - name: win_2019
         type: PowerShell
-#         configuration:
-#           nodePool: win2019
-#           inputResources:
-#             - name: connecting_resource_node_test_1
+        configuration:
+          nodePool: win2019
+          inputResources:
+            - name: connecting_resource_node_test_1
         execution:
-#           onExecute:
-#             - write-output "Hi"
+          onExecute:
+            - write-output "Hi"
             - docker images
