@@ -18,7 +18,8 @@ pipelines:
             - name: raksha78_github
         execution:
           onExecute:
-            - write_output connecting_resource_node_test_1 "test=value"
+            - echo 'Hello'
+#             - write_output connecting_resource_node_test_1 "test=value"
 
       - name: c7dynamic
         type: Bash
