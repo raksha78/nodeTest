@@ -7,6 +7,30 @@ pipelines:
           onExecute:
             - printenv
             - docker images
+      - name: bash_step1
+        type: Bash
+        execution:
+          onExecute:
+            - printenv
+            - docker images
+      - name: bash_step2
+        type: Bash
+        execution:
+          onExecute:
+            - printenv
+            - docker images
+      - name: bash_step3
+        type: Bash
+        execution:
+          onExecute:
+            - printenv
+            - docker images
+      - name: bash_step4
+        type: Bash
+        execution:
+          onExecute:
+            - printenv
+            - docker images
             
       - name: powershell_step
         type: PowerShell
@@ -14,6 +38,11 @@ pipelines:
           nodePool: win2019
           inputSteps:
             - name: bash_step
+            - name: bash_step1
+            - name: bash_step2
+            - name: bash_step3
+            - name: bash_step4
+            
         execution:
           onExecute:
             - write-output "Hi !!"
