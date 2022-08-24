@@ -1,0 +1,19 @@
+pipelines:
+  - name: bash_and_powershell_basic
+    steps:
+      - name: bash_step
+        type: Bash
+        execution:
+          onExecute:
+            - printenv
+            - docker images
+      - name: powershell_step
+        type: PowerShell
+        configuration:
+          nodePool: win2019
+          inputSteps:
+            - name: bash_step
+        execution:
+          onExecute:
+            - write-output "Hi !!"
+            - docker images
